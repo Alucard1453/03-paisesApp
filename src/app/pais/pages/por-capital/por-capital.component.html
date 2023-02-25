@@ -1,13 +1,15 @@
-<h2>Por Capital</h2>
-<hr>
-<div class="row">
-    <div class="col">
-        <app-pais-input (onEnter)="buscar( $event )" placeholder="Buscar Capital..."></app-pais-input>
-        <!-- se le envia una propiedad llamada placeholder a pais-input, al no usar []  se indica 
-        que se estara enviando como string -->
+<div class="animate__animated animate__fadeIn animate__fast">
+    <h2>Por Capital</h2>
+    <hr>
+    <div class="row">
+        <div class="col">
+            <app-pais-input (onEnter)="buscar( $event )" placeholder="Buscar Capital..."></app-pais-input>
+            <!-- se le envia una propiedad llamada placeholder a pais-input, al no usar []  se indica 
+            que se estara enviando como string -->
+        </div>
     </div>
+    <hr>
 </div>
-<hr>
 <div class="alert alert-danger" *ngIf="hayError">
     No se encontró nada con el término {{termino}}
 </div>

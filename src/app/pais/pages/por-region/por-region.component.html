@@ -1,1 +1,33 @@
-<p>por-region works!</p>
+<div class="animate__animated animate__fadeIn animate__fast">
+    <h3>Buscar por region <small> {{regionActiva | titlecase}} </small></h3>
+    <hr>
+    <div class="row">
+        <div class="col">
+            <!-- [class.btn-primary]="region === regionActiva" -->
+            <!-- Se puede agregar el codigo de arriba al button para agregar una clase cuando se
+                 cumple alguna condicion. -->
+    
+            <!-- [ngClass]="{
+                    'btn-primary': region === regionActiva,
+                    'btn-outline-primary': region !== regionActiva
+                }" -->
+            <!-- Otra alternativa es con un [ngClass] el cual nos permite evaluar diferentes condiciones 
+                 y aplicar elementos a la clase-->
+    
+            <!-- [class]="(region === regionActiva) ? 'btn btn-primary' : 'btn btn-outline-primary'" -->
+            <!-- Colocar el elemento [class] entre llaves cuadradas indica que lo que se iguale debe ser 
+                 una expresion de javascript o una propiedad de typescrip. En este caso se evalua si la
+                 region es igual a regionactiva si lo es coloca 'btn btn-primary' a la clase, sino
+                 coloca 'btn btn-outline-primary'-->
+            <button *ngFor="let region of regiones" 
+                    [class]="getClaseCSS(region)"
+                    (click)="activarRegion( region )">{{ region | titlecase }}</button>
+        </div>
+    </div>
+</div>
+
+<div class="row" *ngIf="paises.length > 0">
+    <div class="col">
+        <app-pais-tabla [arregloPaises]="paises"></app-pais-tabla>
+    </div>
+</div>
